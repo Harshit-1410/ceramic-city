@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Ceramic City</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="products.css" rel="stylesheet">
+</head>
+<body>
+
+
+    <!-- Header -->
+    <section class="products-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 fw-light text-white mb-4">Our Products</h1>
+                    <p class="lead text-white-50">Discover our complete collection of premium ceramic tiles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filters -->
+    <section class="search-filters py-4 bg-light">
+        <div class="container">
+            <div class="row g-3">
+                <!-- Search Bar -->
+                <div class="col-lg-6">
+                    <div class="search-box">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0">
+                                <i class="fas fa-search text-muted"></i>
+                            </span>
+                            <input type="text" id="searchInput" class="form-control border-start-0" placeholder="Search products...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="col-lg-6">
+                    <div class="row g-2">
+                        <div class="col-md-4">
+                            <select id="categoryFilter" class="form-select">
+                                <option value="">All Categories</option>
+                                <option value="floor">Floor Tiles</option>
+                                <option value="wall">Wall Tiles</option>
+                                <option value="outdoor">Outdoor Tiles</option>
+                                <option value="3d">3D Designer</option>
+                                <option value="marble">Marble Finish</option>
+                                <option value="mosaic">Mosaic</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select id="sizeFilter" class="form-select">
+                                <option value="">All Sizes</option>
+                                <option value="300x300">300 x 300 mm</option>
+                                <option value="400x400">400 x 400 mm</option>
+                                <option value="500x500">500 x 500 mm</option>
+                                <option value="600x600">600 x 600 mm</option>
+                                <option value="800x800">800 x 800 mm</option>
+                                <option value="300x600">300 x 600 mm</option>
+                                <option value="600x1200">600 x 1200 mm</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select id="priceFilter" class="form-select">
+                                <option value="">All Prices</option>
+                                <option value="0-50">Under ₹50/sq ft</option>
+                                <option value="50-100">₹50 - ₹100/sq ft</option>
+                                <option value="100-200">₹100 - ₹200/sq ft</option>
+                                <option value="200+">Above ₹200/sq ft</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Filters -->
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div id="activeFilters" class="active-filters">
+                        <!-- Active filters will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-grid py-5">
+        <div class="container">
+            <!-- Results Count -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p class="text-muted mb-0">
+                            Showing <span id="resultsCount">0</span> of <span id="totalCount">0</span> products
+                        </p>
+                        <div class="d-flex align-items-center gap-3">
+                            <label class="form-label mb-0">Sort by:</label>
+                            <select id="sortFilter" class="form-select form-select-sm" style="width: auto;">
+                                <option value="name">Name A-Z</option>
+                                <option value="name-desc">Name Z-A</option>
+                                <option value="price">Price Low-High</option>
+                                <option value="price-desc">Price High-Low</option>
+                                <option value="popular">Most Popular</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products -->
+            <div class="row g-4" id="productsContainer">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <button id="loadMoreBtn" class="btn btn-outline-primary btn-lg" style="display: none;">
+                        Load More Products
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick View Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img id="modalImage" src="" alt="" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 id="modalName"></h4>
+                            <p class="text-muted" id="modalCategory"></p>
+                            <div class="mb-3">
+                                <span class="h5 text-primary" id="modalPrice"></span>
+                                <span class="text-muted">/sq ft</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Size:</strong> <span id="modalSize"></span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Finish:</strong> <span id="modalFinish"></span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Description:</strong>
+                                <p id="modalDescription" class="text-muted"></p>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-primary" onclick="openCalculatorModal()">
+                                    <i class="fas fa-calculator me-2"></i>Calculate Quantity
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tile Calculator Modal -->
+    <div class="modal fade" id="calculatorModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tile Calculator</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="mb-3">Selected Product</h6>
+                            <div class="selected-product-info mb-4">
+                                <img id="calcProductImage" src="" alt="" class="img-fluid rounded mb-2" style="max-width: 150px;">
+                                <h6 id="calcProductName"></h6>
+                                <p class="text-muted mb-1">Size: <span id="calcProductSize"></span></p>
+                                <p class="text-muted mb-1">Price: <span id="calcProductPrice"></span>/sq ft</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="mb-3">Calculate Quantity</h6>
+                            <div class="row g-3 mb-4">
+                                <div class="col-6">
+                                    <label class="form-label">Room Length (m)</label>
+                                    <input type="number" id="calcRoomLength" class="form-control" placeholder="5.0" step="0.1">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Room Width (m)</label>
+                                    <input type="number" id="calcRoomWidth" class="form-control" placeholder="4.0" step="0.1">
+                                </div>
+                            </div>
+                            <button id="calcCalculateBtn" class="btn btn-primary w-100 mb-4" onclick="calculateProductTiles()">
+                                <i class="fas fa-calculator me-2"></i>Calculate Tiles
+                            </button>
+                            <div id="calcEstimateResult" class="estimate-result" style="display: none;">
+                                <h6>Estimate Results</h6>
+                                <div class="estimate-details">
+                                    <div class="estimate-row">
+                                        <span>Room Area:</span>
+                                        <span id="calcRoomArea">0 m²</span>
+                                    </div>
+                                    <div class="estimate-row">
+                                        <span>Tiles Needed:</span>
+                                        <span id="calcTilesNeeded">0</span>
+                                    </div>
+                                    <div class="estimate-row">
+                                        <span>Wastage (5%):</span>
+                                        <span id="calcWastage">0</span>
+                                    </div>
+                                    <div class="estimate-row total">
+                                        <span>Total Tiles:</span>
+                                        <span id="calcTotalTiles">0</span>
+                                    </div>
+                                    <div class="estimate-row total">
+                                        <span>Estimated Cost:</span>
+                                        <span id="calcTotalCost">₹0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Call Button -->
+    <a href="tel:+918780945744" class="floating-call-btn" aria-label="Call us">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="products.js"></script>
+</body>
+</html> 
