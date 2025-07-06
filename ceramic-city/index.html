@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceramic City - Elegance & Durability</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-background"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Ceramic City 
+                <span class="hero-subtitle">Elegance & Durability</span>
+            </h1>
+            <p class="hero-description">
+                Transform your spaces with our premium ceramic tiles. From modern minimalism to timeless classics.
+            </p>
+            <div class="hero-buttons">
+                <a href="products.html" class="btn btn-primary btn-lg me-3">
+                    Explore Collections
+                </a>
+                <button class="btn btn-outline-light btn-lg" onclick="openShowroom()">
+                    Visit Showroom
+                </button>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-icon"></div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section id="collections" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Collections</h2>
+                <p class="section-subtitle">
+                    Discover our premium range of ceramic tiles designed for every space and style
+                </p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="backgroundimg.jpeg" alt="Floor Tiles" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <h3>Floor Tiles</h3>
+                            <p>Premium flooring solutions</p>
+                            <a href="products.html" class="btn btn-primary btn-sm">View Collection</a >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Wall Tiles" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <h3>Wall Tiles</h3>
+                            <p>Elegant wall coverings</p>
+                            <a href="products.html" class="btn btn-primary btn-sm">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Outdoor Tiles" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <h3>Outdoor Tiles</h3>
+                            <p>Weather-resistant beauty</p>
+                            <a href="products.html" class="btn btn-primary btn-sm">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="https://images.pexels.com/photos/1571462/pexels-photo-1571462.jpeg?auto=compress&cs=tinysrgb&w=600" alt="3D Designer Tiles" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <h3>3D Designer Tiles</h3>
+                            <p>Artistic texture designs</p>
+                            <a href="products.html" class="btn btn-primary btn-sm">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="https://images.pexels.com/photos/1571461/pexels-photo-1571461.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Marble Finish" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <h3>Marble Finish</h3>
+                            <p>Luxury marble aesthetics</p>
+                            <a href="products.html" class="btn btn-primary btn-sm">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mosaic Collection" class="img-fluid">
+                        </div>
+                        <div class="category-overlay">
+                            <h3>Mosaic Collection</h3>
+                            <p>Intricate pattern tiles</p>
+                            <a href="products.html" class="btn btn-primary btn-sm">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Calculator Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-6">
+                    <div class="contact-card">
+                        <h2 class="section-title">Contact Us</h2>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="you@email.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone</label>
+                                <input type="tel" class="form-control" placeholder="Phone Number" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" rows="4" placeholder="How can we help you?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Tile Calculator -->
+                <div class="col-lg-6">
+                    <div class="calculator-card">
+                        <h2 class="section-title">Tile Calculator</h2>
+                        <div class="row g-3 mb-4">
+                            <div class="col-6">
+                                <label class="form-label">Room Length (m)</label>
+                                <input type="number" id="roomLength" class="form-control" placeholder="5.0" step="0.1">
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Room Width (m)</label>
+                                <input type="number" id="roomWidth" class="form-control" placeholder="4.0" step="0.1">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Tile Size (mm)</label>
+                                <select id="tileSize" class="form-select">
+                                    <option value="300x300">300 x 300 mm</option>
+                                    <option value="400x400">400 x 400 mm</option>
+                                    <option value="500x500">500 x 500 mm</option>
+                                    <option value="600x600">600 x 600 mm</option>
+                                    <option value="800x800">800 x 800 mm</option>
+                                    <option value="1000x1000">1000 x 1000 mm</option>
+                                    <option value="300x600">300 x 600 mm</option>
+                                    <option value="400x800">400 x 800 mm</option>
+                                    <option value="600x1200">600 x 1200 mm</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button id="calculateBtn" class="btn btn-primary w-100 mb-4" onclick="calculateTiles()">
+                            <i class="fas fa-calculator me-2"></i>Calculate Tiles
+                        </button>
+                        <div id="estimateResult" class="estimate-result" style="display: none;">
+                            <h3>Estimate Results</h3>
+                            <div class="estimate-details">
+                                <div class="estimate-row">
+                                    <span>Room Area:</span>
+                                    <span id="roomArea">0 m²</span>
+                                </div>
+                                <div class="estimate-row">
+                                    <span>Tiles Needed:</span>
+                                    <span id="tilesNeeded">0</span>
+                                </div>
+                                <div class="estimate-row">
+                                    <span>Wastage (5%):</span>
+                                    <span id="wastage">0</span>
+                                </div>
+                                <div class="estimate-row total">
+                                    <span>Total Tiles:</span>
+                                    <span id="totalTiles">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <!-- Company Info -->
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="footer-title">Ceramic City</h3>
+                    <p class="footer-text">
+                        Transforming spaces with premium ceramic tiles since 2010. Quality, beauty, and durability in every tile.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#collections" onclick="scrollToSection('collections')">Collections</a></li>
+                        <li><a href="#" onclick="openShowroom()">Showroom</a></li>
+                        <li><a href="#calculator" onclick="scrollToSection('calculator')">Calculator</a></li>
+                        <li><a href="#contact" onclick="scrollToSection('contact')">About Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li>Design Consultation</li>
+                        <li>Delivery</li>
+                        <li>Warranty</li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 9722256411</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@ceramiccity.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Sagar House, N.H.No.8, Nr. Zenith Tin, Chhani,, Vadodara, Gujarat 391740</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="newsletter-section">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <h4 class="footer-heading">Stay Updated</h4>
+                        <p class="footer-text">Get the latest designs and offers delivered to your inbox</p>
+                        <div class="newsletter-form">
+                            <input type="email" class="form-control" placeholder="Your email address">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ceramic City. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Call Button -->
+    <a href="tel:+918780945744" class="floating-call-btn" aria-label="Call us">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
